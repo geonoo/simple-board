@@ -19,11 +19,6 @@ public class PostController {
 
     private final PostService postService;
 
-    @GetMapping("/post")
-    public String viewPost() {
-        return "post/post";
-    }
-
     @GetMapping("/api/post")
     public List<Post> listPost(){
         return postRepository.findAll(Sort.by(Sort.Direction.DESC, "createdDate"));
@@ -44,14 +39,13 @@ public class PostController {
     }
 
     @PutMapping("/api/post/{id}")
-    public Long putPost(@RequestBody PostDto postDto, @PathVariable Long id){
+    public Post putPost(@RequestBody PostDto postDto, @PathVariable Long id){
 
         return postService.update(id, postDto);
     }
 
     @DeleteMapping("/api/post/{id}")
     public Long deletePost(@PathVariable Long id){
-        postRepository.deleteById(id);
-        return id;
+        return postService.delete(id);
     }
 }

@@ -4,6 +4,8 @@ package com.geonoo.board.repository;
 import com.geonoo.board.domain.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CommentRepository extends JpaRepository<Comment, Long> {
+import java.util.List;
 
+public interface CommentRepository extends JpaRepository<Comment, Long> {
+    List<Comment> findAllByPostId(Long post_id);
 }
