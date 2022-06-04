@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequiredArgsConstructor
+@RestController // @Controller에 @ResponseBody가 추가
+@RequiredArgsConstructor //아래 의존하는 클래스를 주입하기위해 생성자 주입방법을 간략하게 사용
 public class PostController {
 
     private final PostRepository postRepository;

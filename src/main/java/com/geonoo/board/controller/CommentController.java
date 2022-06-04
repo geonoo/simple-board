@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
 public class CommentController {
+  
     final CommentRepository commentRepository;
-
+  
     final CommentService commentService;
 
     @GetMapping("/api/comment/{id}")
