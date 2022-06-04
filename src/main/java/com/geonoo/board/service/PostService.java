@@ -23,11 +23,20 @@ public class PostService {
 //    }
 
     @Transactional // SQL 쿼리가 일어나야 함을 스프링에게 알려줌
-    public Long update(Long id, PostDto postDto) {
+    public Post update(Long id, PostDto postDto) {
         Post postOne = postRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 글이 존재하지 않습니다.")
         );
         postOne.update(postDto);
-        return postOne.getId();
+        return postOne;
+    }
+
+    @Transactional
+    public Long delete(Long id){
+        Post post = postRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("글이 존재 하지 않습니다.")
+        );
+        postRepository.deleteById(id);
+        return id;
     }
 }
