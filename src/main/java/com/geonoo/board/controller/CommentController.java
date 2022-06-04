@@ -22,7 +22,6 @@ public class CommentController {
 
     @GetMapping("/api/comment/{id}")
     public List<Comment> listComment(@PathVariable Long id){
-        System.out.println(id);
         return commentRepository.findAllByPostId(id);
     }
 
