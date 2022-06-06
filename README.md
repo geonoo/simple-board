@@ -16,14 +16,6 @@
 | 댓글 수정     | PUT  | /api/comment/{id} | Comment | Comment               |
 | 댓글 삭제     | DELETE | /api/comment/{id} | -    | id                    |
 
-
-### 2022-06-03 - 일부 완성 / 정리 해야할...
-- 전체 글 목록 조회
-- 게시글 작성
-- 게시글 조회
-- 게시글 수정
-- 게시글 삭제
-
 #### JPA
 
 #### Controller
@@ -51,4 +43,8 @@
 - @EntityListeners(AuditingEntityListener.class)
 - @CreatedDate
 - @LastModifiedDate
+
+#### Exception
+ - @RestControllerAdvice
+ - @ExceptionHandler
 
