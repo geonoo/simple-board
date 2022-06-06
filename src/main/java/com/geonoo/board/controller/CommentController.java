@@ -20,8 +20,8 @@ public class CommentController {
   
     final CommentService commentService;
 
-    @GetMapping("/api/comment/{id}")
-    public List<Comment> listComment(@PathVariable Long id){
+    @GetMapping("/api/comment/{post-id}")
+    public List<Comment> listComment(@PathVariable("post-id") Long id){
         return commentRepository.findAllByPostId(id);
     }
 
@@ -31,13 +31,13 @@ public class CommentController {
         return commentRepository.save(comment);
     }
 
-    @PutMapping("/api/comment/{id}")
-    public Comment updateComment(@Valid @RequestBody CommentDto commentDto, @PathVariable Long id){
+    @PutMapping("/api/comment/{comment-id}")
+    public Comment updateComment(@Valid @RequestBody CommentDto commentDto, @PathVariable("comment-id") Long id){
         return commentService.update(id, commentDto);
     }
 
-    @DeleteMapping("/api/comment/{id}")
-    public Long deleteComment(@PathVariable Long id){
+    @DeleteMapping("/api/comment/{comment-id}")
+    public Long deleteComment(@PathVariable("comment-id") Long id){
 
         return commentService.delete(id);
     }

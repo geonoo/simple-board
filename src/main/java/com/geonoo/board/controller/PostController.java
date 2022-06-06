@@ -24,8 +24,8 @@ public class PostController {
         return postRepository.findAll(Sort.by(Sort.Direction.DESC, "createdDate"));
     }
 
-    @GetMapping("/api/post/{id}")
-    public Post onePost(@PathVariable Long id){
+    @GetMapping("/api/post/{post-id}")
+    public Post onePost(@PathVariable("post-id") Long id){
         return postRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 글이 존재하지 않습니다.")
         );
@@ -38,14 +38,14 @@ public class PostController {
         return postRepository.save(post);
     }
 
-    @PutMapping("/api/post/{id}")
-    public Post putPost(@RequestBody PostDto postDto, @PathVariable Long id){
+    @PutMapping("/api/post/{post-id}")
+    public Post putPost(@RequestBody PostDto postDto, @PathVariable("post-id") Long id){
 
         return postService.update(id, postDto);
     }
 
-    @DeleteMapping("/api/post/{id}")
-    public Long deletePost(@PathVariable Long id){
+    @DeleteMapping("/api/post/{post-id}")
+    public Long deletePost(@PathVariable("post-id") Long id){
         return postService.delete(id);
     }
 }
