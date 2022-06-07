@@ -5,14 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @NoArgsConstructor
 @Getter
 @Setter
 public class CommentDto {
 
-    @NotBlank(message = "댓글 내용을 입력해주세요")
+    @NotEmpty(message = "댓글 내용을 입력해주세요")
     private String comment;
 
     //@NotBlank는 String 타입 어노테이션이므로 NotNull을 해주어야 함
